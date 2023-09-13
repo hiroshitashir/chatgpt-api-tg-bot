@@ -95,7 +95,13 @@ async def continue_conversation(message: types.Message, state: FSMContext):
         return
 
     MESSAGE_HISTORY.add_message(Role.USER, user_answer)
-    gpt_response = await get_chatgpt_response(MESSAGE_HISTORY)
+    try:
+      gpt_response = await get_chatgpt_response(MESSAGE_HISTORY)
+    except openai.error.AuthenticationError:
+      await message.answer("""You haven't set OpenAI token. Get a token at \
+                           https://platform.openai.com/account/api-keys \
+                           and set it with /set_token.""")
+      return
     MESSAGE_HISTORY.add_message(Role.ASSISTANT, gpt_response)
 
     await Form.continue_chat.set()

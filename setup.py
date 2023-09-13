@@ -4,9 +4,9 @@ setup(
     name="chatgpt_bot",
     version="0.0.1",
     description="Generic Telegram bot using ChatGPT API",
-    url="https://github.com/galinaalperovich/chatgpt-api-tg-bot",
-    author="Galina Alperovich",
-    author_email="galya.alperovich@gmail.com",
+    url="https://github.com/hiroshitashir/chatgpt-api-tg-bot",
+    author="Hiroshi Tashiro",
+    author_email="hiroshitashir@gmail.com",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 3 - Alpha",
