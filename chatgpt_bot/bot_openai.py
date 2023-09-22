@@ -76,7 +76,9 @@ async def new_chat(message: types.Message):
     logger.info("/new_chat command was invoked")
     MESSAGE_HISTORY.clear()
     start_message = "Hi! I'm your own ChatGPT in Telegram :) How can I help you?"
-    MESSAGE_HISTORY.add_message(Role.SYSTEM, start_message)
+    start_message_system = "Converse with the user as his or her best friend. Ask questions occastionally."
+    MESSAGE_HISTORY.add_message(Role.SYSTEM, start_message_system)
+    MESSAGE_HISTORY.add_message(Role.ASSISTANT, start_message)
     await Form.continue_chat.set()
     await message.answer(start_message)
 
