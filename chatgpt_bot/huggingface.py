@@ -8,21 +8,6 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 class ConversationChatbot:
-    # def __init__(self, model_name):
-    #     self.model_name = model_name
-    #     self.pipeline = pipeline("conversational", model=self.model_name)
-    #     self.conversation = None
-
-    # def get_response(self, message_text):
-    #     if self.conversation is None:
-    #         self.conversation = Conversation(message_text)            
-    #     else:
-    #         self.conversation.add_user_input(message_text)
-
-    #     self.conversation = self.pipeline(self.conversation, \
-    #                                       pad_token_id=self.pipeline.tokenizer.eos_token_id)
-    #     return self.conversation.generated_responses[-1]
-
     def __init__(self, model_name) -> None:
         self.model_name = model_name
         tokenizer, model = self.load_model()
